@@ -1,0 +1,83 @@
+﻿<html>
+<head>
+<hta:application 
+	applicationname="Word2TestLink"
+	version="1.0.5"
+	border="thin"
+	borderstyle="normal"
+	caption="yes"
+	contextmenu="no"
+	icon="res\logo.ico"
+	maximizebutton="no"
+	minimizebutton="yes"
+	selection="no"
+	singleinstance="yes"
+	showintaskbar="yes"
+	scroll="no"
+	sysmenu="yes"
+/>
+
+<meta name="author" content="Отдел тестирования" />
+<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+<meta http-equiv="MSThemeCompatible" content="Yes" />
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+<style type="text/css">
+    /* Common style */
+    *     {padding:0; margin:0;  }
+    html  { font-size:100%;  }
+    body {
+      background-color: #ECECEC;
+      color: #000000;
+      padding:30px;
+      background-image:url("res/bg.png");
+    }
+	#container {
+		margin-top: 70px;
+	}
+	.fieldset {
+		color: #000000;
+		border-width="1";
+		border-color: #FFF;
+		padding: 10px;
+	}
+	.checkbox {
+	}
+</style>
+
+<script type="text/javascript">
+    window.resizeTo(670,530);
+	var applicationname = "Word2TestLink";
+	var version = "1.0.5"
+	document.title = applicationname + " " + version;
+</script>
+
+<script type="text/vbscript" src="res/script.vbs"></script>
+</head>
+<body>
+	<div id="container">
+		<div class="fieldset">
+			<div>Путь к исходному файлу doc, docx, ... (документу Word) с проектом тестов:</div>
+			<input title="Путь к исходному файлу doc, docx, ... (документу Word) с проектом тестов" maxlength="65535" type="file" id="fileName" accept="application/msword" style="width: 100%"/>
+		</div>
+		<div class="fieldset">
+			<div>Путь к xml-файлу для TestLink-а (заполнится после создания файла):</div>
+			<input type="text" readOnly="true" title="Путь к xml-файлу для TestLink-а" id="testLink" style="width: 100%"/>
+		</div>
+		<div class="fieldset">
+			<input type="checkbox" title="Отображать окно Microsoft Office Word во время обработки исходного документа?" id="visibleForWord" checked="checked"/>
+			- отображать окно Microsoft Office Word во время обработки документа?
+		</div>
+		<div class="fieldset">
+			<div>
+				<input type="checkbox" title="Обрабатывать картинки?" id="processPicture" checked="checked"/>
+				- обрабатывать картинки?
+			</div>
+			<div id="processPictureInfo"></div>
+		</div>
+		<div class="fieldset">
+			<input type="button" value="Преобразовать" onclick="StartConvert()" />
+		</div>
+	</div>
+</body>
+</html>
